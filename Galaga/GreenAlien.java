@@ -97,7 +97,7 @@ public class GreenAlien extends Alien
     }  
     public void shootMissile()
     {
-        if(Greenfoot.getRandomNumber(600) == 1)
+        if(Greenfoot.getRandomNumber(1000) == 1)
         {
             getWorld().addObject( new redMissile(), getX(), getY() + 45);
         }

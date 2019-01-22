@@ -22,6 +22,7 @@ public class Red_alien extends Alien
     public void act() 
     {
         // Add your action code here.
+        
         setLocation( getX() + 1*speed, getY() );
         if (getX() >= getWorld().getWidth() - 2 || getX() <= 0)
         {
@@ -59,6 +60,7 @@ public class Red_alien extends Alien
 
  
         }
+        shootMissile();
     } 
     
     public Red_alien()
@@ -69,5 +71,12 @@ public class Red_alien extends Alien
         image2.scale(35, 35);
         image3.scale(35, 35); 
         setImage(image1);
+    }
+    public void shootMissile()
+    {
+        if(Greenfoot.getRandomNumber(700) == 1)
+        {
+            getWorld().addObject( new redMissile(), getX(), getY() + 45);
+        }
     }
 }

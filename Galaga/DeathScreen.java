@@ -16,7 +16,7 @@ public class DeathScreen extends Actor
     public void act() 
     {
         Level1 currentLevel = (Level1)getWorld();
-
+        
         
         if (currentLevel.getDeath() == true)
         {   
@@ -26,10 +26,10 @@ public class DeathScreen extends Actor
             stars.drawString("your actions have caused \n     you to lose one life", stars.getWidth()/2 -170, stars.getHeight()/2 +75);
             setImage(stars);
             getImage().setTransparency(255);
-            
-            
-            
-            
+            currentLevel.removeLife();
+            currentLevel.addObject( new Galaga_ship(), 300, 650 );
+            currentLevel.removeObjects( currentLevel.getObjects(redMissile.class) );
+            System.out.println(currentLevel.getLivesLeft());
         }
         else
         {

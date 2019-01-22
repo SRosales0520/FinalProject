@@ -40,7 +40,7 @@ public class Bluemissile extends Actor
     
     public void destroyAliens()
     {
-        if (isTouching())
+        if (isTouching(Alien.class) || isTouching(redMissile.class) )
         {
             getWorld().removeObject(getOneIntersectingObject(null));
             getWorld().removeObject(this);

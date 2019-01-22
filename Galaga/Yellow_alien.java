@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Yellow_alien extends Alien
 {
+    private int xMoveCounter = 0;
+    private boolean movingInX = false;
     /**
      * Act - do whatever the Yellow_alien wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -19,6 +21,7 @@ public class Yellow_alien extends Alien
         {
             speed = speed * -1;
         }
+        shootMissile();
     } 
     
     public Yellow_alien()
@@ -26,5 +29,21 @@ public class Yellow_alien extends Alien
         GreenfootImage image = getImage();
         image.scale(40, 40);  
         setImage(image); 
+    }
+    public void shootMissile()
+    {
+        if(Greenfoot.getRandomNumber(500) == 1)
+        {
+            getWorld().addObject( new redMissile(), getX(), getY() + 45);
+        }
+    }
+    public void attackMove()
+    {
+        if(movingInX == true && xMoveCounter < 10)
+        {
+            setLocation( getX() +1, getY() );
+            xMoveCounter++;
+        }
+        movingInX = false;
     }
 }

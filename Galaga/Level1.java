@@ -36,12 +36,19 @@ public class Level1 extends World
         
         addAliens();
         
-        if (livesLeft == 3)
+        addObject( new Lifecountership(), 15, 550);
+        addObject( new Lifecountership(), 15, 575);
+        addObject( new Lifecountership(), 15, 600);
+       
+        if (livesLeft == 2)
         {
-            addObject( new Lifecountership(), 15, 550);
-            addObject( new Lifecountership(), 15, 575);
-            addObject( new Lifecountership(), 15, 600);
+            removeObject( getObjects(Lifecountership.class).get(livesLeft) );
+        } 
+        else if (livesLeft == 1)
+        {
+            removeObject( getObjects(Lifecountership.class).get(livesLeft) );
         }
+        
         
         setPaintOrder(DeathScreen.class);
         
@@ -96,4 +103,12 @@ public class Level1 extends World
         return greenAlienImages[index];
     }
     
+    public void removeLife()
+    {
+        livesLeft = livesLeft -1;
+    }
+    public int getLivesLeft()
+    {
+        return livesLeft;
+    }
 }
