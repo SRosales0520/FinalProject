@@ -49,6 +49,7 @@ public class redMissile extends Actor
             removeTouching(Galaga_ship.class);
             getWorld().removeObjects(blueMissles);
             stillInWorld = false;
+            currentLevel.removeLife();
             currentLevel.setDeath();
             getWorld().removeObject(this);
         }

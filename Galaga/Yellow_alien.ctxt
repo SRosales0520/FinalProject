@@ -8,6 +8,4 @@ comment2.params=
 comment2.target=Yellow_alien()
 comment3.params=
 comment3.target=void\ shootMissile()
-comment4.params=
-comment4.target=void\ attackMove()
-numComments=5
+numComments=4

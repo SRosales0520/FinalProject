@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartScreen extends World
 {
-    GreenfootImage logo = new GreenfootImage ("space defenders logo.png");
+    GreenfootImage logo = new GreenfootImage ("space defender gradient title.png");
     /**
      * Constructor for objects of class StartScreen.
      * 
@@ -23,7 +23,7 @@ public class StartScreen extends World
         
         addObject( textbox, 300, 200);
         
-        getBackground().drawImage(logo, 50, 25);
+        getBackground().drawImage(logo, 140, -15);
         
         showText("destroy all the aliens and save earth by using \n WASD to move and the space bar to shoot missiles.", 300, 300);
     }
