@@ -150,7 +150,12 @@ public class Level1 extends World
     {
         return greenAlienImages[index];
     }
-    
+    /**
+     * removeLife taakes away one life when it is called and then removes a life counter ship object of the same value of livesLeft on the list from the world
+     * 
+     * @param there are no parameters
+     * @return Nothing is returned
+     */
     public void removeLife()
     {
         livesLeft = livesLeft -1;
@@ -168,10 +173,22 @@ public class Level1 extends World
             removeObject( getObjects(Lifecountership.class).get(livesLeft) );
         }
     }
+    /**
+     * getLivesLeft returns the livesLeft integer value so that it can be accessed elsewhere in the code
+     * 
+     * @param there are no parameters
+     * @return in livesLeft value.
+     */
     public int getLivesLeft()
     {
         return livesLeft;
     }
+    /**
+     * win checks to see if there are no alian objects left in the world. if ther are none, it adds a new WinScreen object 
+     * 
+     * @param there are no parameters
+     * @return Nothing is returned
+     */
     public void win()
     {
         if (getObjects(Alien.class).size() == 0)

@@ -1,9 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
+ * Name: samuel rosales 
+ * Course: software development
+ * Teacher: Mr. Hardman 
+ * Date Last Modified: january 24th 2019
+ */
+/**
+ * Level2 is the starting world for my space defenders game
  * 
- * @author (your name) 
+ * @author (Samuel) 
  * @version (a version number or a date)
  */
 public class Level2 extends World
@@ -15,9 +21,13 @@ public class Level2 extends World
     private GreenfootImage[] yellowAlienImages = new GreenfootImage[3];
     
     private int livesLeft = 3;
+    
     /**
-     * Constructor for objects of class MyWorld.
+     * default constructor for Level1 sets the background to the stars image, adds in the ship, banner and lifecounters. 
+     * this constuctor also sets the paint order of the game to GameOver.class and DeathScreen.class, and calls the setDeathmethod .
      * 
+     * @param there are none
+     * @return an object of World
      */
     public Level2()
     {
@@ -46,12 +56,24 @@ public class Level2 extends World
         setPaintOrder(GameOver.class, DeathScreen.class);
         
         setDeath();
-        win();
+        
     }
+    /**
+     * act method runs when the act button is pressed and constantly runs the win method but nothing happens until win methods requirements are met. 
+     * 
+     * @param there are no parameters
+     * @return Nothing is returned
+     */
     public void act()
     {
         win();
     }
+    /**
+     * addAliens has multiple loops that go through and add the aliens at multiple incemented places along the screen 
+     * 
+     * @param there are no parameters
+     * @return Nothing is returned
+     */
     public void addAliens()
     {
         //draws the yellow ships
@@ -78,12 +100,22 @@ public class Level2 extends World
             }
         }  
     }
-    
+    /**
+     * getDeath returns the shipDeath boolean for use in telling the game that you have died. 
+     * 
+     * @param there are no parameters
+     * @return a Boolean called shipDeath
+     */
     public boolean getDeath()
     {
         return shipDeath;
     }
-
+    /**
+     * setDeath checks to see how many lives you have left and either shows the death scrren or the GameOver screen. 
+     * 
+     * @param there are no parameters
+     * @return Nothing is returned
+     */
     public void setDeath()
     {
         if(livesLeft > -1)
@@ -98,17 +130,33 @@ public class Level2 extends World
         }
         
     }
-    
+    /**
+     * changeWorld will set the world to a new level3 world if called. 
+     * 
+     * @param there are no parameters
+     * @return Nothing is returned
+     */
     public void changeWorld()
     {
-        //Greenfoot.setWorld( new Level3() );
+        // no level three yet!
+        //Greenfoot.setWorld( new Level2() );
     }
-    
+    /**
+     * getGreenAlienImages returns the image at the given index through the parameter. 
+     * 
+     * @param int index. used to acces different indecies of the array
+     * @return a GreenfootImage is returned.
+     */
     public GreenfootImage getGreenAlienImages(int index)
     {
         return greenAlienImages[index];
     }
-    
+    /**
+     * removeLife taakes away one life when it is called and then removes a life counter ship object of the same value of livesLeft on the list from the world
+     * 
+     * @param there are no parameters
+     * @return Nothing is returned
+     */
     public void removeLife()
     {
         livesLeft = livesLeft -1;
@@ -126,10 +174,22 @@ public class Level2 extends World
             removeObject( getObjects(Lifecountership.class).get(livesLeft) );
         }
     }
+    /**
+     * getLivesLeft returns the livesLeft integer value so that it can be accessed elsewhere in the code
+     * 
+     * @param there are no parameters
+     * @return in livesLeft value.
+     */
     public int getLivesLeft()
     {
         return livesLeft;
     }
+    /**
+     * win checks to see if there are no alian objects left in the world. if ther are none, it adds a new WinScreen object 
+     * 
+     * @param there are no parameters
+     * @return Nothing is returned
+     */
     public void win()
     {
         if (getObjects(Alien.class).size() == 0)
